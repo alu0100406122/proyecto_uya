@@ -1,0 +1,9 @@
+
+* Iniciar la base de datos mysql:
+
+        $ mysql-ctl cli
+        $ show databases;
+        $ use mydb;
+        $ show tables;
+        
+
