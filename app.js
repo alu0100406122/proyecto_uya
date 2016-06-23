@@ -36,43 +36,65 @@ connection.connect(function(error){
   }
 });
 
-connection.query("SELECT * FROM USUARIOS",(err,rows)=>{
-    if(err) throw err;
-    console.log("Lista de usuarios:");
-    for (var i=0;i<rows.length;i++){
-        console.log(rows[i].idUSUARIOS + " " + rows[i].Nombre + " " + rows[i].Apellidos + " " + rows[i].Zonas + " " + rows[i].Vehiculo);
-    }
-});
+// connection.query("SELECT * FROM USUARIOS",(err,rows)=>{
+//     if(err) throw err;
+//     console.log("Lista de usuarios:");
+//     for (var i=0;i<rows.length;i++){
+//         console.log(rows[i].idUSUARIOS + " " + rows[i].Nombre + " " + rows[i].Apellidos + " " + rows[i].Zonas + " " + rows[i].Vehiculo);
+//     }
+// });
 
 //-------------------------------------------------------------------------------------
-
-
 
 app.get('/', (request, response) => {     
     console.log("Accediendo a index");
 
-    connection.query("SELECT * FROM TRAYECTO",(err,rows)=>{
+    // connection.query("SELECT * FROM TRAYECTO",(err,rows)=>{
+    //     if(err) throw err;
+    //     console.log("Lista de trayectos:");
+    //     for (var i=0;i<rows.length;i++){
+    //         console.log(rows[i].idTRAYECTO + " " + rows[i].Ofertante + " " + rows[i].Origen + " " + rows[i].Destino + " " + rows[i].Dias + " " + rows[i].TRAYECTOcol);
+    //     }
+    //     response.send({contenido: rows[1].Origen});
+    // });
+
+});
+
+//---------------------------------------------------------------------------------
+// Búsqueda de un destino en la base de datos.
+
+app.get('/destino',(request, response)=>{     
+    console.log("Accediendo a busqueda de un destino");
+    var resultado = request.query.destino_elegido;
+    console.log("datos : "+resultado);
+
+    connection.query('SELECT * FROM TRAYECTO WHERE Destino= ? ',[resultado] ,(err,rows)=>{
         if(err) throw err;
-        console.log("Lista de trayectos:");
-        for (var i=0;i<rows.length;i++){
-            console.log(rows[i].idTRAYECTO + " " + rows[i].Ofertante + " " + rows[i].Origen + " " + rows[i].Destino + " " + rows[i].Dias + " " + rows[i].TRAYECTOcol);
-        }
-        response.send({contenido: rows[1].Origen});
+        // console.log("consulta: "+rows[0].Origen);
+        response.send({ mensaje: "Consulta realizada", contenido: rows});
     });
+    // response.send("devolviendo desde el servidor...");
+    
 
     
 });
 
-app.get('/traemeeso',(request,response)=>{
-    connection.query("SELECT * FROM TRAYECTO",(err,rows)=>{
-        if(err) throw err;
-        console.log("Lista de trayectos:");
-        for (var i=0;i<rows.length;i++){
-            console.log(rows[i].idTRAYECTO + " " + rows[i].Ofertante + " " + rows[i].Origen + " " + rows[i].Destino + " " + rows[i].Dias + " " + rows[i].TRAYECTOcol);
-        }
-        response.send(rows);
-    });
-});
+//---------------------------------------------------------------------------------
+// Almacenar en la base de datos
+
+
+//---------------------------------------------------------------------------------
+
+// app.get('/traemeeso',(request,response)=>{
+//     connection.query("SELECT * FROM TRAYECTO",(err,rows)=>{
+//         if(err) throw err;
+//         console.log("Lista de trayectos:");
+//         for (var i=0;i<rows.length;i++){
+//             console.log(rows[i].idTRAYECTO + " " + rows[i].Ofertante + " " + rows[i].Origen + " " + rows[i].Destino + " " + rows[i].Dias + " " + rows[i].TRAYECTOcol);
+//         }
+//         response.send(rows);
+//     });
+// });
 
 
 app.listen(app.get('port'), () => {
