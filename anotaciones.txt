@@ -9,3 +9,5 @@
 
 * Insertar un elemento:
 INSERT INTO gente VALUES ('Fulano','1974-04-12');
+
+dar funcionalidad formulario index

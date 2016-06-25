@@ -71,7 +71,7 @@ app.get('/destino',(request, response)=>{
     connection.query('SELECT * FROM TRAYECTO WHERE Destino= ? ',[resultado] ,(err,rows)=>{
         if(err) throw err;
         // console.log("consulta: "+rows[0].Origen);
-        response.send({ mensaje: "Consulta realizada", contenido: rows});
+        response.send({mensaje: "Consulta realizada", contenido: rows});
     });
     // response.send("devolviendo desde el servidor...");
     
@@ -82,7 +82,13 @@ app.get('/destino',(request, response)=>{
 //---------------------------------------------------------------------------------
 // Almacenar en la base de datos
 
-
+app.get('/registro',(request, response)=>{
+    console.log("Accediendo a registro");
+    connection.query('INSERT INTO USUARIOS (Nombre, Apellidos, Zonas,Vehiculo,Telefono,Password,Email,CodigoPostal) VALUES (nombre,apellidos,zonas,vehiculo,telefono,password,email,codigoPostal)' ,(err,rows)=>{
+        if(err) throw err;
+        
+    });
+});
 //---------------------------------------------------------------------------------
 
 // app.get('/traemeeso',(request,response)=>{
