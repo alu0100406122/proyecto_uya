@@ -54,16 +54,16 @@
                 <ul class="right hide-on-med-and-down" role="navigation">
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="#intro">Inicio</a></li>
-                    <li><a href="#work">Coches</a></li>
+                    <!--<li><a href="#work">Coches</a></li>-->
                     
-                    <li><a href="#contact">Contacto</a></li>
+                    <!--<li><a href="#contact">Contacto</a></li>-->
                 </ul>
                 <ul id="nav-mobile" class="side-nav" role="navigation">
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="#intro">Inicio</a></li>
-                    <li><a href="#work">Coches</a></li>
+                    <!--<li><a href="#work">Coches</a></li>-->
     
-                    <li><a href="#contact">Contacto</a></li>
+                    <!--<li><a href="#contact">Contacto</a></li>-->
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
@@ -115,7 +115,8 @@
             <a id="pasajero" class="waves-effect waves-light btn"><i></i>pasajero</a>
             <a id="conductor" class="waves-effect waves-light btn"><i></i>conductor</a>
         </div>
-        
+        <!---------------------------------------------------------------------------->
+        <!-- Elección de oferta -->
         <div id="busqueda" class="row card-panel"> 
         <h4 class="header text_b center">Búsqueda de un destino</h4>
         <div class="row">
@@ -154,7 +155,8 @@
         </div>
         </div> <!-- Fin div búsqueda-->
         
-        
+        <!---------------------------------------------------------------------------->
+        <!-- Publicar una oferta -->
         <div id="form_conductor" class="row card-panel">
             <h4 class="header text_b center">Publicar una oferta</h4>
             <div class="row">
@@ -166,21 +168,21 @@
                 </div>
                 
                 <div class="input-field col s6">
-                  <input id="last_name" type="text" class="validate">
-                  <label for="last_name">Last Name</label>
+                  <input id="vehiculo" type="text" class="validate">
+                  <label for="vehiculo">Vehiculo</label>
                 </div>
                 
                 <div class="col s6 m6" role="form">
                   <form class="col s12">
                       <label for="origen">Origen</label>
-                      <select id="origen_elegido" class="browser-default" tabindex="0">
+                      <select id="publicar_origen" class="browser-default" tabindex="0">
                         <option value="" disabled selected>Origen</option>
                         <option value="Jinamar">Jinamar</option>
                         <option value="Las Remudas">Las Remudas</option>
                         <option value="La Matanza">La Matanza</option>
                         <option value="Breña Baja">Breña Baja</option>
                         <option value="Arico">Arico</option>
-                        <option value="Alajer">Alajero</option>
+                        <option value="Alajero">Alajero</option>
                         <option value="San Andres">San Andres</option>
                       </select>
                   <form/>
@@ -189,14 +191,14 @@
                 <div class="col s6 m6" role="form">
                   <form class="col s12">
                       <label for="destino">Destino</label>
-                      <select id="destino_elegido" class="browser-default" tabindex="0">
+                      <select id="publicar_destino" class="browser-default" tabindex="0">
                         <option value="" disabled selected>Destino</option>
+                        <option value="Arico">Arico</option>
+                        <option value="Alajero">Alajero</option>
                         <option value="Jinamar">Jinamar</option>
                         <option value="Las Remudas">Las Remudas</option>
                         <option value="La Matanza">La Matanza</option>
                         <option value="Breña Baja">Breña Baja</option>
-                        <option value="Arico">Arico</option>
-                        <option value="Alajer">Alajero</option>
                         <option value="San Andres">San Andres</option>
                       </select>
                   <form/>
@@ -205,7 +207,7 @@
                 <div class="col s6 m6" role="form">
                   <form class="col s12">
                       <label for="precio">Precio</label>
-                      <select id="destino_elegido" class="browser-default" tabindex="0">
+                      <select id="publicar_precio" class="browser-default" tabindex="0">
                         <option value="" disabled selected>Choose your option</option>
                         <option value="3">3€</option>
                         <option value="4">4€</option>

@@ -75,33 +75,51 @@ app.get('/destino',(request, response)=>{
     });
     // response.send("devolviendo desde el servidor...");
     
-
-    
 });
 
 //---------------------------------------------------------------------------------
 // Almacenar en la base de datos
 
-app.get('/registro',(request, response)=>{
+app.get('/registro_usuario',(request, response)=>{
     console.log("Accediendo a registro");
-    connection.query('INSERT INTO USUARIOS (Nombre, Apellidos, Zonas,Vehiculo,Telefono,Password,Email,CodigoPostal) VALUES (nombre,apellidos,zonas,vehiculo,telefono,password,email,codigoPostal)' ,(err,rows)=>{
+    
+    // Elección del Id de usuario ?
+    
+    var usuario = {Nombre: request.query.nombre, Apellidos: request.query.apellidos, Zonas: request.query.zonas, Vehiculo: request.query.vehiculo, Telefono: request.query.telefono, Password: request.query.password, Email: request.query.email, CodigoPostal: request.query.codigoPostal};
+    connection.query('INSERT INTO USUARIOS SET ?', usuario ,(err,rows)=>{
+    // connection.query('INSERT INTO USUARIOS (Nombre, Apellidos, Zonas,Vehiculo,Telefono,Password,Email,CodigoPostal) VALUES (nombre,apellidos,zonas,vehiculo,telefono,password,email,codigoPostal)' ,(err,rows)=>{
         if(err) throw err;
         
     });
 });
+
+app.get('/sesion_usuario', (request, response)=>{
+    var nombre_usuario = request.query.nombre;
+    var password_usuario = request.query.password;
+    console.log("Nombre: "+nombre_usuario+" password: "+password_usuario);
+    
+    connection.query('SELECT * FROM USUARIOS WHERE Nombre=? AND Password=?',[nombre_usuario, password_usuario], (err,rows)=>{
+        if(err) throw err;
+        var id_usuario = rows[0].idUSUARIOS;
+        console.log("rows idUSUARIOS: "+id_usuario);
+        response.send({mensaje: "Consulta realizada", contenido: id_usuario});
+    });
+});
+
 //---------------------------------------------------------------------------------
+// Almacenar oferta en la tabla TRAYECTOS.
 
-// app.get('/traemeeso',(request,response)=>{
-//     connection.query("SELECT * FROM TRAYECTO",(err,rows)=>{
-//         if(err) throw err;
-//         console.log("Lista de trayectos:");
-//         for (var i=0;i<rows.length;i++){
-//             console.log(rows[i].idTRAYECTO + " " + rows[i].Ofertante + " " + rows[i].Origen + " " + rows[i].Destino + " " + rows[i].Dias + " " + rows[i].TRAYECTOcol);
-//         }
-//         response.send(rows);
-//     });
-// });
+app.get('/publicar_oferta',(request, response)=>{
+    var oferta = {Nombre: request.query.Nombre, Vehiculo: request.query.Vehiculo, Origen: request.query.Origen, Destino: request.query.Destino, Precio: request.query.Precio}; 
+    console.log("origen: "+request.query.Origen);
+    console.log("destino: "+request.query.Destino);
+    connection.query('INSERT INTO TRAYECTO SET ?', oferta,(err,rows)=>{
+      if(err) throw err;
+    });
+});
 
+
+//---------------------------------------------------------------------------------
 
 app.listen(app.get('port'), () => {
     console.log(`Node app is running at localhost: ${app.get('port')}` );

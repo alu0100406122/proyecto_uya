@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="favicon.ico">
     
     <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -58,62 +58,106 @@
 <div id="intro" class="section scrollspy" >
     <div class="container" role="main">
         <div class="row">
+            
+            <!-- Indicar si desea registrarse o iniciar sesión -->
+            <a id="ini_sesion" class="waves-effect waves-light btn-large">Iniciar sesión</a>
+            <a id="reg" class="waves-effect waves-light btn-large">Registrarse</a>
+            
+            <!-- Formulario de registro para nuevo usuario-->
+            <div id="form_registro">
+                
             <div  class="col s12">
                 <h3 class="center header text_h2"> Registro </h3>
             </div>
-
             <form class="col s12"  role="form">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="mdi-action-account-circle prefix"></i>
-                            <input id="nombre" name="nombre" type="text" class="validate" aria-required="true">
-                            <label for="icon_prefix" >Nombre</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="mdi-action-account-circle prefix"></i>
-                            <input id="apellidos" name="apellidos" type="text" class="validate">
-                            <label for="icon_prefix" >Apellidos</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="mdi-action-dashboard prefix"></i>
-                            <input id="zonas" name="zonas" type="text" class="validate">
-                            <label for="icon_prefix" >Zonas</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="mdi-maps-directions-car prefix"></i>
-                            <input id="vehiculo" name="vehiculo" type="text" class="validate">
-                            <label for="icon_prefix" >Vehiculo</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="mdi-communication-vpn-key prefix"></i>
-                            <input id="password" name="password" type="password" class="validate">
-                            <label for="icon_prefix" >Contraseña</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="mdi-communication-email prefix"></i>
-                            <input id="email" name="email" type="email" class="validate" aria-required="true">
-                            <label for="icon_email" >Correo Eléctronico</label>
-                        </div>
-                        <div class="input-field col s6">
-                          <i class="mdi-maps-local-phone prefix"></i>
-                          <input id="telefono" type="tel" name="telefono" class="validate">
-                          <label for="icon_telephone">Telephone</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="mdi-action-pageview prefix"></i>
-                            <input id="codigo_postal" name="codigo_postal" type="text" class="validate">
-                            <label for="codigo_postal" >Código Postal</label>
-                        </div>
-                        
-                        </br></br>
-                        <div class="col offset-s7 s5">
-                            <button class="btn waves-effect waves-light red darken-1" type="submit" id="registro">Enviar
-                                <i class="mdi-content-send right "></i>
-                            </button>
-                        </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input id="nombre" name="nombre" type="text" class="validate" aria-required="true">
+                        <label for="icon_prefix" >Nombre</label>
                     </div>
-                </form>
+                    <div class="input-field col s12">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input id="apellidos" name="apellidos" type="text" class="validate">
+                        <label for="icon_prefix" >Apellidos</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="mdi-action-dashboard prefix"></i>
+                        <input id="zonas" name="zonas" type="text" class="validate">
+                        <label for="icon_prefix" >Zonas</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="mdi-maps-directions-car prefix"></i>
+                        <input id="vehiculo" name="vehiculo" type="text" class="validate">
+                        <label for="icon_prefix" >Vehiculo</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="mdi-communication-vpn-key prefix"></i>
+                        <input id="password" name="password" type="password" class="validate">
+                        <label for="icon_prefix" >Contraseña</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="mdi-communication-email prefix"></i>
+                        <input id="email" name="email" type="email" class="validate" aria-required="true">
+                        <label for="icon_email" >Correo Eléctronico</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <i class="mdi-maps-local-phone prefix"></i>
+                      <input id="telefono" type="tel" name="telefono" class="validate">
+                      <label for="icon_telephone">Telephone</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="mdi-action-pageview prefix"></i>
+                        <input id="codigo_postal" name="codigo_postal" type="text" class="validate">
+                        <label for="codigo_postal" >Código Postal</label>
+                    </div>
+                    
+                    </br></br>
+                    <div class="col offset-s7 s5">
+                        <button class="btn waves-effect waves-light red darken-1" type="submit" id="registro">Registrarme
+                            <i class="mdi-content-send right "></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div><!-- Fin form registro -->
+            
+            <div id="form_login">
+                
+            <div  class="col s12">
+                <h3 class="center header text_h2"> Iniciar sesión </h3>
+            </div>
+                
+            <form class="col s12"  role="form">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="mdi-action-account-circle prefix"></i>
+                    <input id="nombre_login" name="nombre_login" type="text" class="validate" aria-required="true">
+                    <label for="icon_prefix" >Nombre</label>
+                </div>
+                
+                <div class="input-field col s6">
+                    <i class="mdi-communication-vpn-key prefix"></i>
+                    <input id="password_login" name="password_login" type="password" class="validate" aria-required="true">
+                    <label for="icon_prefix" >Contraseña</label>
+                </div>
+                
+                
+                </br></br>
+                <div class="col offset-s7 s5">
+                    <button class="btn waves-effect waves-light red darken-1" type="submit" id="iniciar_sesion">Iniciar sesión
+                        <i class="mdi-content-send right "></i>
+                    </button>
+                </div>
+            </div>
+            </form>
+            </div>
+            <div>
+                <p class="right" id="usu_correcto"></p>
+            </div>
+            <div class="col s12">
                 <p>Se cumple con la ley Orgánica 15/1999, de 13 de diciembre, sobre Protección de Datos de Carácter Personal y su normativa de desarrollo (RD 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de Desarrollo de la Ley Orgánica 15/1999 de Protección de Datos de Carácter Personal)</p>
+            </div>
         </div>
     </div>
 </div>

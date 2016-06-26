@@ -1,13 +1,21 @@
 
 * Iniciar la base de datos mysql:
-
         $ mysql-ctl cli
         $ show databases;
         $ use mydb;
         $ show tables;
+
+* Insertar un elemento:         INSERT INTO gente VALUES ('Fulano','1974-04-12');
+
+* Mostrar la estructura de una tabla:   show columns from TRAYECTO;
+
+* Modificar columnas de la tabla:       ALTER TABLE TRAYECTO MODIFY idTRAYECTO INT AUTO_INCREMENT;
+
+Tareas pendientes:
+        - dar funcionalidad formulario index
+        - test de usuarios
+        - test A/B
         
 
-* Insertar un elemento:
-INSERT INTO gente VALUES ('Fulano','1974-04-12');
-
-dar funcionalidad formulario index
+* Nueva tabla creada de TRAYECTO por problemas con la clave ajena:
+CREATE TABLE TRAYECTO  (idTRAYECTO INT NOT NULL AUTO_INCREMENT, Ofertante INT(100), Nombre VARCHAR(250), Origen VARCHAR(250), Destino VARCHAR(250), Vehiculo VARCHAR(250), Precio VARCHAR(100), Fecha DATE, PRIMARY KEY(idTRAYECTO));
