@@ -16,8 +16,8 @@
     
     <!-- Jquery-->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    
 
     
 </head>
@@ -98,40 +98,111 @@
 
 <!--Work-->
 <div class="section scrollspy" id="work" role="complementary">
-    <div class="container">
-        <h2 class="header text_b center">Busqueda:</h2>
-        <div class="row">
-        <label class="blue-text text-darken-2"></label>
-        
-          <div class="col s9 m9" role="from">
-              <select id="destino_elegido" class="browser-default">
-                <option value="" disabled selected>Elige destino</option>
-                <option value="Jinamar">Jinamar</option>
-                <option value="Las Remudas">Las Remudas</option>
-                <option value="La Matanza">La Matanza</option>
-                <option value="Breña Baja">Breña Baja</option>
-                <option value="Arico">Arico</option>
-                <option value="Alajer">Alajero</option>
-                <option value="San Andres">San Andres</option>
-              </select>
-          </div>
-          <!-- Botón para la búqueda -->
-          <div class="col s3 m3">
-            <button class="btn waves-effect waves-light blue darken-1" id="buscar_destino" type="submit">Enviar
-                <i class="mdi-content-send right "></i>
-            </button>
-          </div>
-          
-      
-      </div>
-      <div class="container" id="oferta_coches">
-        <h3 class="header text_b center">Ofertas disponibles</h3>
-        <div class="row">
-            <h5>Aquí va en resultado de la búsqueda</h5>
-            
-        </div>
-        </div>
+    
+    <div class="center">            
+        <a id="of_taxis" class="waves-effect waves-light btn"><i></i>Ofertas disponibles</a>
+        <a id="pub_taxis" class="waves-effect waves-light btn"><i></i>Ofertar</a>
     </div>
+
+    <!-- Salida de las ofertas disponibles-->
+    <div id="ofertas_taxis" class="row card-panel">
+        <div class="container" >
+            <h4 class="header text_b center">Ofertas disponibles</h4>
+            <div class="row">
+                <!--<h5>Aquí va en resultado de la búsqueda</h5>-->
+                <div class="output" id="taxisTable">
+                    
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    
+    <!---------------------------------------------------------------------------->
+    <!-- Publicar una oferta -->
+    <div id="form_taxista" class="row card-panel">
+        <h4 class="header text_b center">Publicar una oferta</h4>
+        <div class="row">
+        <form class="col s12">
+          
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="nombre_taxista" type="text" class="validate">
+              <label for="nombre_taxista">Nombre</label>
+            </div>
+          
+            <div class="col s6 m6" role="form">
+              <form class="col s12">
+                  <label for="origen">Origen</label>
+                  <select id="taxi_origen" class="browser-default" tabindex="0">
+                    <option value="" disabled selected>Origen</option>
+                    <option value="Jinamar">Jinamar</option>
+                    <option value="Las Remudas">Las Remudas</option>
+                    <option value="La Matanza">La Matanza</option>
+                    <option value="Breña Baja">Breña Baja</option>
+                    <option value="Arico">Arico</option>
+                    <option value="Alajero">Alajero</option>
+                    <option value="San Andres">San Andres</option>
+                  </select>
+              <form/>
+            </div>
+            
+            <div class="col s6 m6" role="form">
+              <form class="col s12">
+                  <label for="destino_taxista">Destino</label>
+                  <select id="destino_taxista" class="browser-default" tabindex="0">
+                    <option value="" disabled selected>Destino</option>
+                    <option value="Arico">Arico</option>
+                    <option value="Alajero">Alajero</option>
+                    <option value="Jinamar">Jinamar</option>
+                    <option value="Las Remudas">Las Remudas</option>
+                    <option value="La Matanza">La Matanza</option>
+                    <option value="Breña Baja">Breña Baja</option>
+                    <option value="San Andres">San Andres</option>
+                  </select>
+              <form/>
+            </div>
+            
+            <div class="col s6 m6" role="form">
+              <form class="col s12">
+                  <label for="plazas_taxista">Plazas</label>
+                  <select id="plazas_taxista" class="browser-default" tabindex="0">
+                    <option value="" disabled selected>Elige una opción</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+              <form/>
+            </div>
+            
+            <div class="col s6 m6" role="form">
+              <form class="col s12">
+                  <label for="precio_taxista">Precio</label>
+                  <select id="precio_taxista" class="browser-default" tabindex="0">
+                    <option value="" disabled selected>Elige una opción</option>
+                    <option value="2">2€</option>
+                    <option value="3">3€</option>
+                    <option value="4">4€</option>
+                    <option value="5">5€</option>
+                    <option value="8">8€</option>
+                    <option value="10">10€</option>
+                  </select>
+              <form/>
+            </div>
+            
+          </div>
+        </form>
+        <button id="publicar_oferta_taxi" class="btn waves-effect waves-light darken-1 right" type="submit">Publicar </button>
+        <div id="of_correcta_taxis">
+            <p><b>Se ha publicado su oferta correctamente</b></p>
+        </div>
+        </div>
+    </div> <!-- Fin div publicar -->
+    
+ 
+    
+    
     
 </div>
 
@@ -145,32 +216,7 @@
 <div id="contact" class="page-footer default_color scrollspy" role="contentinfo">
     <div class="container">
         <div class="row">
-            <div class="col l6 s12">
-                <form class="col s12" action="contact.php" method="post" role="form">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <i class="mdi-action-account-circle prefix white-text"></i>
-                            <input id="icon_prefix" name="name" type="text" class="validate white-text">
-                            <label for="icon_prefix" class="white-text">Nombre</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="mdi-communication-email prefix white-text"></i>
-                            <input id="icon_email" name="email" type="text" class="validate white-text">
-                            <label for="icon_email" class="white-text">Correo</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="mdi-editor-mode-edit prefix white-text"></i>
-                            <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text" rows="5" cols="5"></textarea>
-                            <label for="icon_prefix2" class="white-text">Mensaje</label>
-                        </div>
-                        <div class="col offset-s7 s5">
-                            <button class="btn waves-effect waves-light red darken-1" type="submit">Enviar
-                                <i class="mdi-content-send right white-text"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            
             <div class="col l4 s12">
                 <h5 class="white-text">info@wfe.com</h5>
                 <ul>

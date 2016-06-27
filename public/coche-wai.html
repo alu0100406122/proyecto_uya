@@ -120,9 +120,28 @@
         <div id="busqueda" class="row card-panel"> 
         <h4 class="header text_b center">Búsqueda de un destino</h4>
         <div class="row">
+            
+            <!-- Origen -->
+            <!--<label class="blue-text text-darken-2"></label>-->
+            <!--<div class="col s9 m9" role="form">-->
+            <!--  <form>-->
+            <!--      <select id="origen_elegido" class="browser-default" tabindex="0">-->
+            <!--        <option value="" disabled selected>Elige origen</option>-->
+            <!--        <option value="Jinamar">Jinamar</option>-->
+            <!--        <option value="Las Remudas">Las Remudas</option>-->
+            <!--        <option value="La Matanza">La Matanza</option>-->
+            <!--        <option value="Breña Baja">Breña Baja</option>-->
+            <!--        <option value="Arico">Arico</option>-->
+            <!--        <option value="Alajer">Alajero</option>-->
+            <!--        <option value="San Andres">San Andres</option>-->
+            <!--      </select>-->
+            <!--  <form/>-->
+            <!--</div>-->
+            
+            <!-- Destino -->
             <label class="blue-text text-darken-2"></label>
             <div class="col s9 m9" role="form">
-              <form class="col s12">
+              <form >
                   <select id="destino_elegido" class="browser-default" tabindex="0">
                     <option value="" disabled selected>Elige destino</option>
                     <option value="Jinamar">Jinamar</option>
@@ -138,7 +157,8 @@
               
             <!-- Botón para la búqueda -->
             <div class="col s3 m3">
-                <button id="buscar_destino" class="btn waves-effect waves-light darken-1 right" type="submit">Enviar </button>
+                <br>
+                <button id="buscar_destino" class="btn waves-effect waves-light darken-1 right" type="submit">Buscar </button>
             </div>
         </div>
         </div> <!-- Fin div búsqueda-->
@@ -153,7 +173,7 @@
                 </div>
             </div>
         </div>
-        </div> <!-- Fin div búsqueda-->
+        </div> <!-- Fin div ofertas-->
         
         <!---------------------------------------------------------------------------->
         <!-- Publicar una oferta -->
@@ -161,17 +181,13 @@
             <h4 class="header text_b center">Publicar una oferta</h4>
             <div class="row">
             <form class="col s12">
+              
               <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col s12">
                   <input id="first_name" type="text" class="validate">
                   <label for="first_name">Nombre</label>
                 </div>
-                
-                <div class="input-field col s6">
-                  <input id="vehiculo" type="text" class="validate">
-                  <label for="vehiculo">Vehiculo</label>
-                </div>
-                
+              
                 <div class="col s6 m6" role="form">
                   <form class="col s12">
                       <label for="origen">Origen</label>
@@ -206,14 +222,26 @@
                 
                 <div class="col s6 m6" role="form">
                   <form class="col s12">
+                      <label for="plazas">Plazas</label>
+                      <select id="publicar_plazas" class="browser-default" tabindex="0">
+                        <option value="" disabled selected>Elige una opción</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                  <form/>
+                </div>
+                
+                <div class="col s6 m6" role="form">
+                  <form class="col s12">
                       <label for="precio">Precio</label>
                       <select id="publicar_precio" class="browser-default" tabindex="0">
-                        <option value="" disabled selected>Choose your option</option>
+                        <option value="" disabled selected>Elige una opción</option>
+                        <option value="2">2€</option>
                         <option value="3">3€</option>
                         <option value="4">4€</option>
                         <option value="5">5€</option>
-                        <option value="6">6€</option>
-                        <option value="7">7€</option>
                         <option value="8">8€</option>
                         <option value="10">10€</option>
                       </select>
@@ -224,6 +252,9 @@
             </form>
             <button id="publicar" class="btn waves-effect waves-light darken-1 right" type="submit">Publicar </button>
             
+            </div>
+            <div id="oferta_correcta">
+                <p><b>Se ha publicado su oferta correctamente</b></p>
             </div>
         </div> <!-- Fin div publicar --> 
         

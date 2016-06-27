@@ -5,6 +5,8 @@ const app = express();
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 
+
+
 app.set('port', (process.env.PORT || 5000));
 
 // app.set('views', path.join(__dirname, 'views'));
@@ -110,12 +112,41 @@ app.get('/sesion_usuario', (request, response)=>{
 // Almacenar oferta en la tabla TRAYECTOS.
 
 app.get('/publicar_oferta',(request, response)=>{
-    var oferta = {Nombre: request.query.Nombre, Vehiculo: request.query.Vehiculo, Origen: request.query.Origen, Destino: request.query.Destino, Precio: request.query.Precio}; 
+    var oferta = {Nombre: request.query.Nombre, Origen: request.query.Origen, Destino: request.query.Destino, Plazas: request.query.Plazas, Precio: request.query.Precio}; 
     console.log("origen: "+request.query.Origen);
     console.log("destino: "+request.query.Destino);
     connection.query('INSERT INTO TRAYECTO SET ?', oferta,(err,rows)=>{
       if(err) throw err;
     });
+});
+
+//Almacenar oferta en la tabla TAXIS.
+
+app.get('/publicar_oferta_taxi',(request, response)=>{
+    var oferta_taxi = {Nombre: request.query.Nombre, Origen: request.query.Origen, Destino: request.query.Destino, Plazas: request.query.Plazas, Precio: request.query.Precio}; 
+    console.log("origen: "+request.query.Origen);
+    console.log("destino: "+request.query.Destino);
+    connection.query('INSERT INTO TAXIS SET ?', oferta_taxi,(err,rows)=>{
+      if(err) throw err;
+    });
+});
+
+
+//---------------------------------------------------------------------------------
+// Búsqueda de las ofertas de Taxis en la base de datos
+
+app.get('/oferta_t',(request, response)=>{     
+    console.log("Accediendo a ofertas de taxis");
+    // var resultado = request.query.destino_elegido;
+    // console.log("datos : "+resultado);
+
+    connection.query('SELECT * FROM TAXIS',(err,rows)=>{
+        if(err) throw err;
+        // console.log("consulta: "+rows[0].Origen);
+        response.send({mensaje: "Consulta realizada", contenido: rows});
+    });
+    // response.send("devolviendo desde el servidor...");
+    
 });
 
 

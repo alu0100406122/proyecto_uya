@@ -48,6 +48,7 @@
                     <li><a href="#intro">Inicio</a></li>
                     <li><a href="#team">Equipo</a></li>
                     <li><a href="#contact">Contacto</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
                     <li><a href="registro.html">Login</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav" role="navigation">
@@ -226,7 +227,7 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Mena<br>
-                            <small><em><a class="red-text text-darken-1" href="#">El papi</a></em></small></span>
+                            <!--<small><em><a class="red-text text-darken-1" href="#">El papi</a></em></small></span>-->
                             <p>
                                 <a class="blue-text text-lighten-2" href="">
                                     <i class="fa fa-facebook-square"></i>
@@ -251,7 +252,7 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Nayra<br>
-                            <small><em><a class="red-text text-darken-1" href="#">Estilista</a></em></small>
+                            <!--<small><em><a class="red-text text-darken-1" href="#">Estilista</a></em></small>-->
                         </span>
                         <p>
                             <a class="blue-text text-lighten-2" href="">
@@ -278,7 +279,7 @@
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">
                             Yeray <br>
-                            <small><em><a class="red-text text-darken-1" href="#">Norteño</a></em></small></span>
+                            <!--<small><em><a class="red-text text-darken-1" href="#">Norteño</a></em></small></span>-->
                         <p>
                             <a class="blue-text text-lighten-2" href="">
                                 <i class="fa fa-facebook-square"></i>
@@ -304,6 +305,9 @@
 <div  class="page-footer default_color scrollspy" role="contentinfo">
     <div class="container" id="contact">
         <div class="row">
+            <br>
+            <h4 class="white-text"> Contacta con nosotros </h4>
+
             <div class="col l6 s12">
                 <form class="col s12" action="contact.php" method="post" role="form">
                     <div class="row">
@@ -323,12 +327,17 @@
                             <label for="icon_prefix2" class="white-text">Mensaje</label>
                         </div>
                         <div class="col offset-s7 s5">
-                            <button class="btn waves-effect waves-light red darken-1" type="submit">Enviar
+                            <button id="contacto" class="btn waves-effect waves-light red darken-1" type="submit">Enviar
                                 <i class="mdi-content-send right white-text"></i>
                             </button>
+                            
                         </div>
+                        
                     </div>
                 </form>
+                <div id="mensaje_enviado">
+                    <p><b>Gracias por ponerse en contacto con nosotros. En breve le contestaremos.</b></p>
+                </div>
             </div>
             <div class="col l4 s12">
                 <h5 class="white-text">info@wfe.com</h5>
@@ -340,11 +349,6 @@
             <div class="col l2 s12">
                 <h5 class="white-text">Social</h5>
                 <ul>
-                    <li>
-                        <a class="white-text" href="">
-                            <i class="small fa fa-behance-square white-text"></i> Behance
-                        </a>
-                    </li>
                     <li>
                         <a class="white-text" href="">
                             <i class="small fa fa-facebook-square white-text"></i> Facebook

@@ -1,4 +1,5 @@
 
+
 * Iniciar la base de datos mysql:
         $ mysql-ctl cli
         $ show databases;
@@ -19,3 +20,5 @@ Tareas pendientes:
 
 * Nueva tabla creada de TRAYECTO por problemas con la clave ajena:
 CREATE TABLE TRAYECTO  (idTRAYECTO INT NOT NULL AUTO_INCREMENT, Ofertante INT(100), Nombre VARCHAR(250), Origen VARCHAR(250), Destino VARCHAR(250), Vehiculo VARCHAR(250), Precio VARCHAR(100), Fecha DATE, PRIMARY KEY(idTRAYECTO));
+
+https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions
